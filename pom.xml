@@ -205,7 +205,7 @@
               <classpathPrefix>lib/</classpathPrefix>
             </manifest>
           </archive>
-          <warName>${contextPathName}##${revision}</warName>
+          <warName>${contextPathName}</warName>
         </configuration>
       </plugin>
       <plugin>
