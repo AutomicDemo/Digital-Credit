@@ -59,6 +59,7 @@ public class CreditApplication {
 	private String applicationStatus;
 	
 	@JsonProperty (access = Access.READ_ONLY)
+	@Column(length = 1024)
 	private String applicationStatusDetails;
 	
 	@JsonProperty (access = Access.READ_ONLY)

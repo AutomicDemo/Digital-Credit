@@ -142,6 +142,8 @@ public class CreditApplicationService {
 				int totalScore = calculateRiskPoints(app) + calculateDebtToIncomeRatio(app);
 				app.setRiskScore(Long.valueOf(totalScore));
 				
+				LOG.debug("Total Risk Score: " + totalScore);
+				
 				// 43 is the highest debt to income ratio to still obtain approval
 				if (totalScore < 44) { 
 					
@@ -202,15 +204,15 @@ public class CreditApplicationService {
 	private BigDecimal determineCreditLimit (int score) {
 		
 		if (score <= 10) {
-			return new BigDecimal(7000);
+			return new BigDecimal("7000.00");
 		} else if (score <= 20) {
-			return new BigDecimal(5000);
+			return new BigDecimal("5000.00");
 		} else if (score <= 30) {
-			return new BigDecimal(2500);
+			return new BigDecimal("2500.00");
 		} else if (score <= 43) {
-			return new BigDecimal(1000);
+			return new BigDecimal("1000.00");
 		} else {
-			return new BigDecimal(0);
+			return new BigDecimal("0.00");
 		}
 		
 	}
@@ -221,15 +223,15 @@ public class CreditApplicationService {
 	private BigDecimal determineApr (Long score) {
 		
 		if (score >= 800) {
-			return new BigDecimal(0.00);
+			return new BigDecimal("0.00");
 		} else if (score >= 740) {
-			return new BigDecimal(16.24);
+			return new BigDecimal("16.24");
 		} else if (score >= 670) {
-			return new BigDecimal(20.24);
+			return new BigDecimal("20.24");
 		} else if (score >= 580) {
-			return new BigDecimal(24.24);
+			return new BigDecimal("24.24");
 		} else {
-			return new BigDecimal(26.24);
+			return new BigDecimal("26.24");
 		}
 		
 	}
